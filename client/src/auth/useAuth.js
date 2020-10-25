@@ -26,7 +26,6 @@ export const useAuth = () => {
                userCityId: cities
             });
          }
-         else logout();
       } catch (e) {
          console.log(e.message);
       }
