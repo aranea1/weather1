@@ -18,7 +18,7 @@ searchByName = (name, cb) => {
          }, { count: 0 });
       matchedCities.sort((a,b) => (a.name.length - b.name.length));
       cb(null, matchedCities);
-   })
+   });
 };
 
 searchById = (id, cb) => {
