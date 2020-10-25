@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { List, Input } from 'antd';
+import { debounce } from 'lodash';
 
 const searchOptions = {
    zIndex: 2,
@@ -30,16 +31,23 @@ const SearchCity = props => {
       // eslint-disable-next-line
    }, [displayOptions]);
 
-
-   const handleInputChange = e => {
-      const value = e.target.value;
+   const handleInputChange = value => {
+      setDisplayOptions(true);
       setSearchInput(value);
       if (!value) {
          return setDisplayOptions(false);
       }
-      search(value, 'byName');
-      setDisplayOptions(true);
    }
+   const query = () => {
+      search(searchInput, 'byName');
+   }
+   
+   // eslint-disable-next-line
+   const delayed = useCallback(debounce(query, 300), [searchInput]);
+   useEffect(() => {
+      delayed();      
+      return delayed.cancel;
+   }, [searchInput, delayed]);
 
    return (
       <div>
@@ -48,7 +56,9 @@ const SearchCity = props => {
             className="searchCityInput"
             value={searchInput}
             placeholder="Enter the name of the city"
-            onChange={e => { handleInputChange(e) }}
+            onChange={e => { 
+               handleInputChange(e.target.value);
+            }}
          />
          {
             (displayOptions &&
