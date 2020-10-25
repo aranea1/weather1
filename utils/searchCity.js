@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { resolve } = require('path');
 
 searchByName = (name, cb) => {
    fs.readFile('./resources/city.list.json', 'utf8', (error, data) => {
@@ -17,6 +16,7 @@ searchByName = (name, cb) => {
             }
             return false;
          }, { count: 0 });
+      matchedCities.sort((a,b) => (a.name.length - b.name.length));
       cb(null, matchedCities);
    })
 };
