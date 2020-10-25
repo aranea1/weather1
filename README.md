@@ -2,7 +2,7 @@
 
 USAGE
 ---------------------------------------------------------
-Deployed at: https://infinite-journey-28108.herokuapp.com/
+Deployed at: https://infinite-journey-28108.herokuapp.com/  
 Credentials for admin features (username, password): admin password
 
 
