@@ -1,5 +1,5 @@
 #Sensitive data
-config/
+config/default.json
 
 # Logs
 logs
