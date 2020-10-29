@@ -2,7 +2,7 @@
 
 USAGE
 ---------------------------------------------------------
-Deployed at: https://infinite-journey-28108.herokuapp.com/  
+Deployed at: http://infinite-journey-28108.herokuapp.com/  
 Credentials for admin features (username, password): admin password
 
 
@@ -23,5 +23,5 @@ On command line at main folder type in these commands:
 
 RUNTIME
 ---------------------------------------------------------
-node version v12.18.2
+node version v12.18.2  
 npm version 6.14.5
